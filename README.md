@@ -1,50 +1,37 @@
-# Welcome to your Expo app 👋
+# KristoffelMenuApp
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Simple Expo React Native app for Chef Christoffel — menu, order and summary screens.
 
-## Get started
+## Quick start (Windows)
 
-1. Install dependencies
+1. Install deps:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+   - If using Expo managed workflow: expo install
+
+2. Start dev server (clear cache):
 
    ```bash
-   npx expo start
+   expo start -c
    ```
 
-In the output, you'll find options to open the app in a
+3. Open web: the app root redirects to /menu (see app/index.tsx)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Important routes (expo-router)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- / (root) -> redirects to /menu
+- /menu -> Menu screen
+- /order -> Order screen (accepts ?order=JSON_ARRAY_OF_IDS)
+- /summary -> Summary screen
+- /summary-details -> optional enhanced summary screen
+- /home -> Home screen (shows average prices)
 
-## Get a fresh project
+## Notes
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Currency uses South African Rand formatting (R0.00).
+- If you see metro errors about missing modules (expo-clipboard), either remove top-level import or install:
+  - expo install expo-clipboard
+- If you see ENOENT '<anonymous>' errors: stop Metro and run expo start -c, ensure no stray files with unusual names exist in project root.
